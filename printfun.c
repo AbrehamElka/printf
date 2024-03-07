@@ -44,7 +44,7 @@ int _printf(const char *format, ...)
 	va_list args;
 	char *s;
 	char c;
-	int i = 0, tot = 0;
+	int i = 0, tot = 0, x;
 
 	if (format == NULL)
 	{
@@ -77,12 +77,8 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 'd' || format[i] == 'i')
 			{
-				s = (char *)va_arg(args, int);
-				if (s != NULL)
-				{
-					_printstr(s);
-					tot+= lenstring(s);
-				}
+				x = va_arg(args, int);
+				tot += printnumber(x);	
 			}
 			else
 			{
