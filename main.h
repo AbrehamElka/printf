@@ -1,5 +1,5 @@
 #ifndef MAIN_FILE
-#define MAINFILE
+#define MAIN_FILE
 int _printf(const char *format, ...);
 void _printstr(char *s);
 int lenstring(char *s);
