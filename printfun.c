@@ -75,6 +75,15 @@ int _printf(const char *format, ...)
 				_putchar(c);
 				tot++;
 			}
+			else if (format[i] == 'd' || format[i] == 'i')
+			{
+				s = (char *)va_arg(args, int);
+				if (s != NULL)
+				{
+					_printstr(s);
+					tot+= lenstring(s);
+				}
+			}
 			else
 			{
 				_putchar('%');
