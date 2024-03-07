@@ -78,8 +78,8 @@ int _printf(const char *format, ...)
 			else
 			{
 				_putchar('%');
-				_putchar(format[i]);
-				tot += 2;
+				i--;
+				tot ++;
 			}
 		}
 		else
