@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stddef.h>
+
 /**
 * printnumber - prints a number input
 * @i: the number to be entered.
@@ -8,41 +8,50 @@
 */
 int printnumber(int i)
 {
-	int val = i, temp = 0, j = 0, k;
-	char c;
+	int val = i, temp = 0, j = 0, k, val2 = 0, zero = 0;
 
 	if (val < 0)
 	{
 		_putchar('-');
 		val *= -1;
 	}
-	while (val > 10)
+	while (val >= 10)
 	{
 		temp = val % 10;
-		val = val - temp;
-		val = (int)(val / 10);
-		if (val < 10)
+		val = (int)val / 10;
+		if (j == 0 && temp == 0)
 		{
-			break;
-		}
-		j++;
-	}
-	val = i;
-	k = j;
-	while (j >= 0)
-	{
-		temp = (int)val / (10 ^ j);
-		if (temp < 10)
-		{
-			c = (char)temp;
-			_putchar(c);
-			j--;
+			zero = 1;
 			continue;
 		}
-		temp = temp % 10;
-		c = (char)temp;
-		_putchar(c);
-		j--;
+		j++;
+		val2 = (val2 * 10) + temp;
+		if (val < 10)
+		{
+			val2 = (val2 * 10) + val;
+			break;
+		}
+ 
 	}
-	return (k);
+	k = j;
+	_putchar((val2 % 10) + '0');
+	while (k >= 0)
+	{
+		val2 = (int)val2 / 10;
+		if (val2 < 10)
+		{
+			_putchar(val2 + '0');
+			k--;
+			if (zero == 1)
+			{
+				_putchar('0');
+				j++;
+			}
+			break;
+		}
+		temp = val2 % 10;
+		_putchar(temp + '0');
+		k--;
+	}
+	return (j + 1);
 }
