@@ -53,5 +53,7 @@ int printnumber(int i)
 		_putchar(temp + '0');
 		k--;
 	}
+	if (i < 0)
+		j++;
 	return (j + 1);
 }
